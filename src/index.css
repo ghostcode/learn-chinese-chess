@@ -1,111 +1,194 @@
-:root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+@import 'tailwindcss';
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
+/* ============================================================
+   弈境 · 古典主题（Tailwind v4 @theme）
+   ============================================================ */
+@theme {
+  /* 宣纸色系 */
+  --color-paper: #f4ecd8;
+  --color-paper-2: #ece0c8;
+  --color-paper-3: #e2d4b7;
 
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
-  color: var(--text);
-  background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  /* 墨色系 */
+  --color-ink: #1c1a17;
+  --color-ink-2: #4a453d;
+  --color-ink-3: #8b857a;
 
-  @media (max-width: 1024px) {
-    font-size: 16px;
+  /* 线框 */
+  --color-line: #d9cbae;
+
+  /* 点缀色 */
+  --color-cinnabar: #9f2b22; /* 朱砂 */
+  --color-jade: #4a7c59; /* 青玉 */
+  --color-gold: #a8874f; /* 古铜 */
+
+  /* 棋盘 */
+  --color-board-line: #6b5433;
+  --color-board-bg: #f0dfba;
+
+  /* 字体 */
+  --font-kai: 'STKaiti', 'KaiTi', '楷体', 'Noto Serif CJK SC', serif;
+  --font-serif-cn: 'Noto Serif CJK SC', 'Source Han Serif SC', 'Songti SC',
+    'STSong', 'SimSun', serif;
+}
+
+/* ============================================================
+   基础层
+   ============================================================ */
+@layer base {
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+    font-family: var(--font-serif-cn);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    /* 宣纸底纹：极淡的斜向纤维纹理 */
+    background-image:
+      repeating-linear-gradient(
+        92deg,
+        rgba(139, 133, 122, 0.028) 0px,
+        rgba(139, 133, 122, 0.028) 1px,
+        transparent 1px,
+        transparent 4px
+      ),
+      repeating-linear-gradient(
+        3deg,
+        rgba(139, 133, 122, 0.022) 0px,
+        rgba(139, 133, 122, 0.022) 1px,
+        transparent 1px,
+        transparent 5px
+      );
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-kai);
+    color: var(--color-ink);
+    font-weight: 700;
+  }
+
+  ::selection {
+    background: rgba(159, 43, 34, 0.18);
+  }
+
+  /* 细古典滚动条 */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-paper-2);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-line);
+    border-radius: 2px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-ink-3);
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+/* ============================================================
+   组件层
+   ============================================================ */
+@layer components {
+  /* 印章：朱底白字方印 */
+  .seal {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-cinnabar);
+    color: #f7f1e3;
+    font-family: var(--font-kai);
+    font-weight: 700;
+    line-height: 1;
+    border-radius: 3px;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.22);
+    letter-spacing: 0;
   }
 
-  #social .button-icon {
-    filter: invert(1) brightness(2);
+  /* 双线分隔：古典书籍文武线 */
+  .rule-double {
+    height: 4px;
+    border-top: 1px solid var(--color-line);
+    border-bottom: 1px solid var(--color-line);
+    background: transparent;
+  }
+
+  /* 卡片 */
+  .card {
+    background: rgba(255, 253, 247, 0.72);
+    border: 1px solid var(--color-line);
+    border-radius: 4px;
+    box-shadow: 0 1px 2px rgba(60, 45, 25, 0.05);
+    transition:
+      box-shadow 0.2s ease,
+      border-color 0.2s ease,
+      transform 0.2s ease;
+  }
+  .card:hover {
+    border-color: rgba(159, 43, 34, 0.35);
+    box-shadow: 0 4px 14px rgba(60, 45, 25, 0.09);
+  }
+
+  /* 古典按钮 */
+  .btn-classic {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.35rem;
+    padding: 0.35rem 0.9rem;
+    font-size: 0.875rem;
+    font-family: var(--font-serif-cn);
+    color: var(--color-ink-2);
+    background: rgba(255, 253, 247, 0.8);
+    border: 1px solid var(--color-line);
+    border-radius: 3px;
+    cursor: pointer;
+    transition: all 0.18s ease;
+    user-select: none;
+  }
+  .btn-classic:hover:not(:disabled) {
+    color: var(--color-cinnabar);
+    border-color: rgba(159, 43, 34, 0.5);
+    background: rgba(159, 43, 34, 0.05);
+  }
+  .btn-classic:active:not(:disabled) {
+    transform: translateY(1px);
+  }
+  .btn-classic:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+  }
+  .btn-classic[data-active='true'] {
+    color: #f7f1e3;
+    background: var(--color-cinnabar);
+    border-color: var(--color-cinnabar);
   }
 }
 
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
-  box-sizing: border-box;
+/* ============================================================
+   工具类
+   ============================================================ */
+@utility text-vertical {
+  writing-mode: vertical-rl;
+  text-orientation: upright;
 }
 
-body {
-  margin: 0;
-}
-
-h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
-}
-
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
-}
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
-}
-p {
-  margin: 0;
-}
-
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
-}
-
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+/* 棋谱列表滚动区 */
+@utility kifu-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-line) transparent;
 }
