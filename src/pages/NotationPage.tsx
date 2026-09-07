@@ -10,8 +10,8 @@ export function NotationPage() {
     <div>
       <PageHeader
         eyebrow="NOTATION"
-        title="記譜法"
-        subtitle="四字記一著：棋子名 + 所在縱線 + 進/退/平 + 目標。學會記譜，是讀懂棋書、自行打譜的基礎。"
+        title="记谱法"
+        subtitle="四字记一着：棋子名 + 所在纵线 + 进/退/平 + 目标。学会记谱，是读懂棋書、自行打谱的基礎。"
       />
 
       {/* 棋子速查 */}
@@ -22,7 +22,7 @@ export function NotationPage() {
 
       {/* 记谱规则 */}
       <section className="card-classic mb-8 p-5">
-        <h2 className="mb-4 font-kai text-lg font-semibold text-[var(--color-ink)]">記譜規則</h2>
+        <h2 className="mb-4 font-kai text-lg font-semibold text-[var(--color-ink)]">记谱规则</h2>
         <div className="grid gap-4 sm:grid-cols-2">
           {NOTATION_RULES.map((r, i) => (
             <div key={i} className="rounded border border-[var(--color-line)] p-4">
@@ -37,13 +37,13 @@ export function NotationPage() {
 
       {/* 示例 */}
       <section className="card-classic p-5">
-        <h2 className="mb-4 font-kai text-lg font-semibold text-[var(--color-ink)]">互動示例：中炮開局</h2>
+        <h2 className="mb-4 font-kai text-lg font-semibold text-[var(--color-ink)]">互动示例：中炮开局</h2>
         <GameBoard
           notation={['炮二平五', '马8进7', '马二进三', '车9平8']}
           notes={{
-            0: '「炮二平五」：紅方二路炮（col7）平到中路（col4），即當頭炮。',
-            1: '「马8进7」：黑方 8 路马（col7）前进到 7 路（col6），構成屏風马。',
-            2: '「马二进三」：紅方二路马（col7）前进到三路（col6），与红方三路马呼应。',
+            0: '「炮二平五」：红方二路炮（col7）平到中路（col4），即当头炮。',
+            1: '「马8进7」：黑方 8 路马（col7）前进到 7 路（col6），构成屏风马。',
+            2: '「马二进三」：红方二路马（col7）前进到三路（col6），与红方三路马呼应。',
             3: '「车9平8」：黑方 9 路车（col8）平到 8 路（col7），准备出直车。',
           }}
           interactive
@@ -107,7 +107,7 @@ function PieceGrid() {
           <PieceDetail type={hover} />
         ) : (
           <div className="flex h-full flex-col items-center justify-center gap-3 text-sm text-[var(--color-ink-3)]">
-            <p>懸浮查看棋子詳情，或直接瀏覽下方棋盤：</p>
+            <p>悬浮查看棋子详情，或直接浏览下方棋盘：</p>
             <div className="w-full max-w-[340px]">
               <ChessBoard board={createInitialBoard()} />
             </div>
@@ -136,7 +136,7 @@ function PieceDetail({ type }: { type: string }) {
         ))}
       </ul>
       <p className="mt-3 border-t border-[var(--color-line)] pt-3 text-sm text-[var(--color-ink-2)]">
-        <span className="font-kai text-[var(--color-cinnabar)]">要點 · </span>
+        <span className="font-kai text-[var(--color-cinnabar)]">要点 · </span>
         {p.tips}
       </p>
     </div>

@@ -5,11 +5,11 @@ import { TACTICS } from '../data/tactics'
 import { OPENINGS } from '../data/openings'
 
 const PRESETS = [
-  { id: 'empty', label: '空盤（自由走棋）', notation: [] as string[] },
-  { id: 't-mahoupao', label: '馬後炮', notation: TACTICS.find((t) => t.id === 'mahoupao')!.notation, fen: TACTICS.find((t) => t.id === 'mahoupao')!.fen },
-  { id: 't-tiemenshuan', label: '鐵門栓', notation: TACTICS.find((t) => t.id === 'tiemenshuan')!.notation, fen: TACTICS.find((t) => t.id === 'tiemenshuan')!.fen },
+  { id: 'empty', label: '空盘（自由走棋）', notation: [] as string[] },
+  { id: 't-mahoupao', label: '马后炮', notation: TACTICS.find((t) => t.id === 'mahoupao')!.notation, fen: TACTICS.find((t) => t.id === 'mahoupao')!.fen },
+  { id: 't-tiemenshuan', label: '铁门栓', notation: TACTICS.find((t) => t.id === 'tiemenshuan')!.notation, fen: TACTICS.find((t) => t.id === 'tiemenshuan')!.fen },
   { id: 't-dadaowanxin', label: '大刀剜心', notation: TACTICS.find((t) => t.id === 'dadaowanxin')!.notation, fen: TACTICS.find((t) => t.id === 'dadaowanxin')!.fen },
-  { id: 'o-zhongpao', label: '中炮對屏風馬', notation: OPENINGS[0].notation },
+  { id: 'o-zhongpao', label: '中炮对屏风马', notation: OPENINGS[0].notation },
 ]
 
 export function ReviewPage() {
@@ -29,13 +29,13 @@ export function ReviewPage() {
     <div>
       <PageHeader
         eyebrow="REVIEW"
-        title="打譜"
-        subtitle="載入或貼上棋譜，逐步推演局面；亦可從庫中挑選範例。"
+        title="打谱"
+        subtitle="载入或贴上棋谱，逐步推演局面；亦可从庫中挑选范例。"
       />
 
       <div className="card-classic mb-6 p-5">
         <div className="mb-3 flex flex-wrap items-center gap-3">
-          <span className="text-sm text-[var(--color-ink-2)]">範例：</span>
+          <span className="text-sm text-[var(--color-ink-2)]">范例：</span>
           {PRESETS.map((p) => (
             <button
               key={p.id}
@@ -51,7 +51,7 @@ export function ReviewPage() {
           ))}
         </div>
         <label className="block text-sm text-[var(--color-ink-2)]">
-          <span className="mb-1 block">貼上棋譜（以空格 / 頓號分隔，如「炮二平五 馬8进7」）</span>
+          <span className="mb-1 block">贴上棋谱（以空格 / 顿号分隔，如「炮二平五 马8进7」）</span>
           <textarea
             value={text}
             onChange={(e) => {
@@ -64,7 +64,7 @@ export function ReviewPage() {
           />
         </label>
         <p className="mt-2 text-xs text-[var(--color-ink-3)]">
-          已識別 {parsed.length} 著。可在棋盤上直接點擊棋子試擺變化，按「復位」回到原譜。
+          已识别 {parsed.length} 着。可在棋盘上直接点击棋子试擺变化，按「复位」回到原谱。
         </p>
       </div>
 

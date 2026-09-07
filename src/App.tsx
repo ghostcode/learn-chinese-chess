@@ -13,9 +13,9 @@ function App() {
       <Routes>
         <Route element={<Layout />}>
           <Route index element={<HomePage />} />
-          <Route path="basics" element={<LevelPage />} />
-          <Route path="intermediate" element={<LevelPage />} />
-          <Route path="advanced" element={<LevelPage />} />
+          {/* 三级课程共用 LevelPage，靠 :levelId 区分（basics / intermediate / advanced）
+              静态路由（openings 等）排名优先，不会被此动态段拦截 */}
+          <Route path=":levelId" element={<LevelPage />} />
           <Route path="openings" element={<OpeningsPage />} />
           <Route path="openings/:id" element={<OpeningDetail />} />
           <Route path="tactics" element={<TacticsPage />} />

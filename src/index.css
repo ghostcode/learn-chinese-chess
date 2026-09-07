@@ -127,8 +127,9 @@
     background: transparent;
   }
 
-  /* 卡片 */
-  .card {
+  /* 卡片（card-classic 为项目主用类名，card 为简写别名） */
+  .card,
+  .card-classic {
     background: rgba(255, 253, 247, 0.72);
     border: 1px solid var(--color-line);
     border-radius: 4px;
@@ -138,7 +139,8 @@
       border-color 0.2s ease,
       transform 0.2s ease;
   }
-  .card:hover {
+  .card:hover,
+  .card-classic:hover {
     border-color: rgba(159, 43, 34, 0.35);
     box-shadow: 0 4px 14px rgba(60, 45, 25, 0.09);
   }

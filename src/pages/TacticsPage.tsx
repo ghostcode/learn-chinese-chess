@@ -8,8 +8,8 @@ export function TacticsPage() {
     <div>
       <PageHeader
         eyebrow="TACTICS"
-        title="經典殺法"
-        subtitle="收錄象棋實戰中最常見的殺法與戰術，附原理、著法演示、互動局面。"
+        title="经典杀法"
+        subtitle="收錄象棋实战中最常見的杀法與战术，附原理、着法演示、互动局面。"
       />
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {TACTICS.map((t) => (
@@ -30,7 +30,7 @@ export function TacticsPage() {
             </p>
             {t.mate && (
               <span className="absolute top-3 right-3 rounded-sm border border-[var(--color-cinnabar)] px-1.5 py-0.5 text-[10px] text-[var(--color-cinnabar)]">
-                絕殺
+                绝杀
               </span>
             )}
           </Link>
@@ -46,14 +46,14 @@ export function TacticDetail() {
   if (!t) {
     return (
       <div className="card-classic p-8 text-center text-[var(--color-ink-2)]">
-        未找到該殺法：{id}
+        未找到该杀法：{id}
       </div>
     )
   }
   return (
     <div className="space-y-6">
       <PageHeader
-        eyebrow={`${t.kind} · ${t.level}${t.mate ? ' · 絕殺' : ''}`}
+        eyebrow={`${t.kind} · ${t.level}${t.mate ? ' · 绝杀' : ''}`}
         title={t.name}
         subtitle={t.desc}
       />
@@ -66,7 +66,7 @@ export function TacticDetail() {
       <div className="grid gap-5 lg:grid-cols-[1.5fr_1fr]">
         <div className="card-classic p-4 sm:p-5">
           <h2 className="mb-3 font-kai text-lg font-semibold text-[var(--color-ink)]">
-            互動局面
+            互动局面
           </h2>
           <GameBoard
             fen={t.fen}
@@ -76,7 +76,7 @@ export function TacticDetail() {
           />
         </div>
         <div className="card-classic p-5">
-          <h3 className="mb-3 font-kai text-base font-semibold text-[var(--color-ink)]">運用要點</h3>
+          <h3 className="mb-3 font-kai text-base font-semibold text-[var(--color-ink)]">运用要点</h3>
           <ul className="space-y-2 text-sm text-[var(--color-ink-2)]">
             {t.points.map((k, i) => (
               <li key={i} className="flex gap-2">
@@ -87,7 +87,7 @@ export function TacticDetail() {
           </ul>
           {t.notation.length === 0 && (
             <p className="mt-3 text-xs text-[var(--color-ink-3)]">
-              此殺法以典型局面展示，可自行嘗試。
+              此杀法以典型局面展示，可自行尝试。
             </p>
           )}
         </div>
@@ -95,7 +95,7 @@ export function TacticDetail() {
 
       <div className="pt-2 text-sm">
         <Link to="/tactics" className="text-[var(--color-cinnabar)] hover:underline">
-          ← 返回殺法庫
+          ← 返回杀法庫
         </Link>
       </div>
     </div>

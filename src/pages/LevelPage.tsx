@@ -1,12 +1,11 @@
 import { useEffect } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { Navigate, useParams } from 'react-router-dom'
 import { LEVELS, type Level } from '../data/lessons'
 import { GameBoard } from '../components/GameBoard'
 import { LevelTabs, PageHeader } from '../components/Layout'
 
 export function LevelPage() {
   const { levelId } = useParams<{ levelId: string }>()
-  const navigate = useNavigate()
   const level: Level | undefined = LEVELS.find((l) => l.id === levelId)
 
   useEffect(() => {
@@ -21,15 +20,10 @@ export function LevelPage() {
     }
   }, [level, levelId])
 
+  // :levelId 是动态段，会匹配任意单段路径（如 /foobar）。
+  // 非法路径直接回首页，避免出现「未找到课程」的死角。
   if (!level) {
-    return (
-      <div className="card-classic p-8 text-center">
-        <p className="text-[var(--color-ink-2)]">未找到課程：{levelId}</p>
-        <button className="btn-classic mt-4" onClick={() => navigate('/')}>
-          回到首頁
-        </button>
-      </div>
-    )
+    return <Navigate to="/" replace />
   }
 
   return (
@@ -80,7 +74,7 @@ export function LevelPage() {
                 {c.board && (
                   <div className="rounded border border-[var(--color-line)] bg-[var(--color-paper)] p-3">
                     <p className="mb-2 text-center text-xs tracking-widest text-[var(--color-ink-3)]">
-                      互 動 棋 盤
+                      互 动 棋 盘
                     </p>
                     <GameBoard
                       fen={c.board.fen}

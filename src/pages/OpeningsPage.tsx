@@ -11,8 +11,8 @@ export function OpeningsPage() {
     <div>
       <PageHeader
         eyebrow="OPENINGS"
-        title="經典開局"
-        subtitle="收錄象棋最常見的開局佈局，每套含原理、優劣勢、運子要點與互動棋譜。"
+        title="经典开局"
+        subtitle="收錄象棋最常見的开局布局，每套含原理、优劣势、运子要点與互动棋谱。"
       />
 
       {CATEGORIES.map((cat) => {
@@ -52,7 +52,7 @@ export function OpeningsPage() {
       })}
 
       <div className="mt-8 flex flex-wrap items-center gap-3 border-t border-[var(--color-line)] pt-6 text-xs text-[var(--color-ink-3)]">
-        <span>難度標識：</span>
+        <span>难度标识：</span>
         {LEVELS.map((lv) => (
           <span key={lv} className="rounded border border-[var(--color-line)] px-2 py-0.5">
             {lv}
@@ -69,7 +69,7 @@ export function OpeningDetail() {
   if (!o) {
     return (
       <div className="card-classic p-8 text-center text-[var(--color-ink-2)]">
-        未找到該開局：{id}
+        未找到该开局：{id}
       </div>
     )
   }
@@ -79,25 +79,25 @@ export function OpeningDetail() {
         eyebrow={`${o.category} · ${o.level}`}
         title={o.name}
         subtitle={o.alias}
-        meta={<span>{o.notation.length} 著 · 互動棋譜可試擺變化</span>}
+        meta={<span>{o.notation.length} 着 · 互动棋谱可试擺变化</span>}
       />
 
       <div className="card-classic p-5 sm:p-6">
-        <h2 className="font-kai text-lg font-semibold text-[var(--color-ink)]">佈局思想</h2>
+        <h2 className="font-kai text-lg font-semibold text-[var(--color-ink)]">布局思想</h2>
         <p className="mt-2 leading-relaxed text-[var(--color-ink-2)]">{o.idea}</p>
       </div>
 
       <div className="grid gap-5 lg:grid-cols-[1.5fr_1fr]">
         <div className="card-classic p-4 sm:p-5">
-          <h2 className="mb-3 font-kai text-lg font-semibold text-[var(--color-ink)]">互動棋譜</h2>
+          <h2 className="mb-3 font-kai text-lg font-semibold text-[var(--color-ink)]">互动棋谱</h2>
           <GameBoard notation={o.notation} notes={o.notes} interactive />
         </div>
         <div className="space-y-5">
           <div className="card-classic p-5">
-            <h3 className="mb-3 font-kai text-base font-semibold text-[var(--color-ink)]">優劣勢</h3>
+            <h3 className="mb-3 font-kai text-base font-semibold text-[var(--color-ink)]">优劣势</h3>
             <div className="grid gap-4 sm:grid-cols-2">
               <div>
-                <p className="mb-1 text-xs tracking-widest text-[var(--color-cinnabar)]">優勢</p>
+                <p className="mb-1 text-xs tracking-widest text-[var(--color-cinnabar)]">优势</p>
                 <ul className="space-y-1 text-sm text-[var(--color-ink-2)]">
                   {o.pros.map((p, i) => (
                     <li key={i} className="flex gap-2"><span>+</span><span>{p}</span></li>
@@ -105,7 +105,7 @@ export function OpeningDetail() {
                 </ul>
               </div>
               <div>
-                <p className="mb-1 text-xs tracking-widest text-[var(--color-ink-3)]">劣勢</p>
+                <p className="mb-1 text-xs tracking-widest text-[var(--color-ink-3)]">劣势</p>
                 <ul className="space-y-1 text-sm text-[var(--color-ink-2)]">
                   {o.cons.map((p, i) => (
                     <li key={i} className="flex gap-2"><span>−</span><span>{p}</span></li>
@@ -115,7 +115,7 @@ export function OpeningDetail() {
             </div>
           </div>
           <div className="card-classic p-5">
-            <h3 className="mb-3 font-kai text-base font-semibold text-[var(--color-ink)]">運子要點</h3>
+            <h3 className="mb-3 font-kai text-base font-semibold text-[var(--color-ink)]">运子要点</h3>
             <ul className="space-y-2 text-sm text-[var(--color-ink-2)]">
               {o.keypoints.map((k, i) => (
                 <li key={i} className="flex gap-2">
@@ -130,7 +130,7 @@ export function OpeningDetail() {
 
       <div className="pt-2 text-sm">
         <Link to="/openings" className="text-[var(--color-cinnabar)] hover:underline">
-          ← 返回開局庫
+          ← 返回开局庫
         </Link>
       </div>
     </div>

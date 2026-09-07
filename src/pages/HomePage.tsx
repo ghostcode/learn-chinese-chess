@@ -14,26 +14,26 @@ export function HomePage() {
         <div className="grid items-center gap-8 lg:grid-cols-[1.1fr_1fr]">
           <div>
             <p className="mb-2 text-xs tracking-[0.4em] text-[var(--color-cinnabar)]">
-              從零到精通 · 系統化課程
+              从零到精通 · 系统化课程
             </p>
             <h1 className="font-kai text-4xl font-bold leading-tight text-[var(--color-ink)] sm:text-5xl">
               中國象棋
               <br />
-              <span className="text-[var(--color-cinnabar)]">習弈之境</span>
+              <span className="text-[var(--color-cinnabar)]">习弈之境</span>
             </h1>
             <p className="mt-5 max-w-lg leading-relaxed text-[var(--color-ink-2)]">
-              從識棋盤、明走法、懂記譜，到中局戰術、殘局基礎、經典殺法，
-              兼具互動棋盤與完整打譜，一站式踏入中國象棋的世界。
+              从识棋盘、明走法、懂记谱，到中局战术、残局基礎、经典杀法，
+              兼具互动棋盘與完整打谱，一站式踏入中國象棋的世界。
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <Link to="/basics" className="btn-classic" data-active="true" style={{ padding: '0.6rem 1.4rem' }}>
-                開始入門 →
+                开始入门 →
               </Link>
               <Link to="/openings" className="btn-classic" style={{ padding: '0.6rem 1.4rem' }}>
-                瀏覽開局庫
+                浏览开局庫
               </Link>
               <Link to="/tactics" className="btn-classic" style={{ padding: '0.6rem 1.4rem' }}>
-                經典殺法
+                经典杀法
               </Link>
             </div>
           </div>
@@ -46,9 +46,9 @@ export function HomePage() {
       {/* 课程卡片 */}
       <section>
         <PageHeader
-          eyebrow="三 階 進 階"
-          title="系統課程"
-          subtitle="由淺入深，每一階皆含互動棋盤。"
+          eyebrow="三 阶 进 阶"
+          title="系统课程"
+          subtitle="由淺入深，每一阶皆含互动棋盘。"
         />
         <div className="grid gap-5 md:grid-cols-3">
           {LEVELS.map((l) => (
@@ -67,7 +67,7 @@ export function HomePage() {
               <p className="mt-3 line-clamp-3 text-sm leading-relaxed text-[var(--color-ink-2)]">
                 {l.intro}
               </p>
-              <p className="mt-4 text-sm text-[var(--color-cinnabar)]">開始學習 →</p>
+              <p className="mt-4 text-sm text-[var(--color-cinnabar)]">开始学习 →</p>
             </Link>
           ))}
         </div>
@@ -77,10 +77,10 @@ export function HomePage() {
       <section className="grid gap-5 lg:grid-cols-2">
         <div className="card-classic p-6">
           <h3 className="font-kai text-xl font-semibold text-[var(--color-ink)]">
-            經典開局
+            经典开局
           </h3>
           <p className="mt-1 text-sm text-[var(--color-ink-3)]">
-            收錄 {OPENINGS.length} 套常見佈局，每套附原理、優劣勢與互動棋譜。
+            收錄 {OPENINGS.length} 套常見布局，每套附原理、优劣势與互动棋谱。
           </p>
           <ul className="mt-4 divide-y divide-[var(--color-line)]">
             {OPENINGS.slice(0, 5).map((o) => (
@@ -103,16 +103,16 @@ export function HomePage() {
             ))}
           </ul>
           <Link to="/openings" className="mt-4 inline-block text-sm text-[var(--color-cinnabar)]">
-            查看全部開局 →
+            查看全部开局 →
           </Link>
         </div>
 
         <div className="card-classic p-6">
           <h3 className="font-kai text-xl font-semibold text-[var(--color-ink)]">
-            經典殺法
+            经典杀法
           </h3>
           <p className="mt-1 text-sm text-[var(--color-ink-3)]">
-            收錄 {TACTICS.length} 種常用殺法，附原理講解、著法演示與互動局面。
+            收錄 {TACTICS.length} 種常用杀法，附原理講解、着法演示與互动局面。
           </p>
           <ul className="mt-4 divide-y divide-[var(--color-line)]">
             {TACTICS.slice(0, 5).map((t) => (
@@ -124,7 +124,7 @@ export function HomePage() {
                   <span>
                     <span className="font-kai">{t.name}</span>
                     {t.mate && (
-                      <span className="ml-2 text-xs text-[var(--color-cinnabar)]">絕殺</span>
+                      <span className="ml-2 text-xs text-[var(--color-cinnabar)]">绝杀</span>
                     )}
                   </span>
                   <span className="text-xs text-[var(--color-cinnabar)]">{t.level}</span>
@@ -133,7 +133,7 @@ export function HomePage() {
             ))}
           </ul>
           <Link to="/tactics" className="mt-4 inline-block text-sm text-[var(--color-cinnabar)]">
-            查看全部殺法 →
+            查看全部杀法 →
           </Link>
         </div>
       </section>
@@ -141,7 +141,7 @@ export function HomePage() {
       {/* 名言 */}
       <section className="card-classic relative px-6 py-10 text-center sm:px-12">
         <p className="font-kai text-2xl leading-relaxed text-[var(--color-ink-2)] sm:text-3xl">
-          「一車十子寒，雙車必勝士象全。」
+          「一车十子寒，双车必胜士象全。」
         </p>
         <p className="mt-3 text-sm tracking-widest text-[var(--color-ink-3)]">
           — 象棋古諺
